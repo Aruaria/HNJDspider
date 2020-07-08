@@ -44,6 +44,7 @@ public class ScoreData {
 		String responseBody = "";
 		responseBody = hc.execute(httppost,responseHandler);
 		httppost.abort();// Õ∑≈¡¨Ω”
-		System.out.println(responseBody);
+		Message ms = new Message();
+		System.out.println(ms.showList(responseBody));
 	}
 }

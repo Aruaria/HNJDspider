@@ -36,6 +36,15 @@ public class MainDemo {
 			Submit sub = new Submit();
 			String message = sub.submit(codes, cookie);
 			System.out.println(message);
+			if(message.indexOf("操作成功")==-1) {
+				/*
+				 * 可能出现的问题:
+				 * 1.验证码未正确识别出来，再次运行程序即可
+				 * 2.目标服务器崩溃了，建议过一会再尝试
+				 * 3.错误的密码
+				 */
+				System.exit(0);
+			}
 			ScoreData sdata = new ScoreData();
 			sdata.showData(cookie);
 		

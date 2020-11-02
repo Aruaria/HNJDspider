@@ -20,7 +20,7 @@ import org.junit.Test;
 public class Submit {
 	
 	public static String submit(String [] codes,String cookie) throws Exception {
-        HttpPost httpPost = new HttpPost("http://**.***.***.**:8081/hnjdjw/cas/logon.action");
+        HttpPost httpPost = new HttpPost("http://61.163.103.43:8081/hnjdjw/cas/logon.action");
         httpPost.setHeader("Cookie", cookie);//不带cookie找不到值
         httpPost.setHeader("X-Requested-With", "XMLHttpRequest");
         HttpClient client = HttpClients.createDefault();

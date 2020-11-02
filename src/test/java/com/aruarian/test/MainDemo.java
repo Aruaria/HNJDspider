@@ -21,7 +21,7 @@ public class MainDemo {
 		PictureSpider ps = new PictureSpider();
 //			String [] codeAndCookie = ps.getCodeAndCookie();
 		do {
-			cookie = ps.saveImage("http://**.***.***.**:8081/hnjdjw/cas/genValidateCode", "images/code.jpg");;
+			cookie = ps.saveImage("http://61.163.103.43:8081/hnjdjw/cas/genValidateCode", "images/code.jpg");;
 			OCR ocr = new OCR();
 			code = ocr.Ocr();
 		}while(code.length()!=4);
@@ -39,9 +39,12 @@ public class MainDemo {
 			if(message.indexOf("操作成功")==-1) {
 				/*
 				 * 可能出现的问题:
-				 * 1.验证码未正确识别出来，再次运行程序即可
-				 * 2.目标服务器崩溃了，建议过一会再尝试
-				 * 3.错误的密码
+				 * 服务器的问题：
+				 * 1.连接超时：网络问题    解决办法：再次尝试运行程序
+				 * 2.连接失败：服务器关闭了    解决办法：过半天后再次尝试即可
+				 * 程序的问题：
+				 * 1.验证码未正确识别出来。     解决办法：再次运行程序即可
+				 * 3.错误的密码     解决办法：密码错误，不能超过限定次数，否则会锁号。
 				 */
 				System.exit(0);
 			}

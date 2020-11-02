@@ -22,7 +22,7 @@ public class ScoreData {
 		//机电教务个人学生信息页：http://**.***.***.**:8081/hnjdjw/MainFrm.html
 		//头部信息：http://**.***.***.**:8081/hnjdjw/frame14/Main_banner.jsp  当前用户xxx同学/xxx老师
 		//成绩总览：http://**.***.***.**:8081/hnjdjw/student/xscj.stuckcj_data.jsp
-		HttpPost httppost = new HttpPost("http://**.***.***.**:8081/hnjdjw/student/xscj.stuckcj_data.jsp");
+		HttpPost httppost = new HttpPost("http://61.163.103.43:8081/hnjdjw/student/xscj.stuckcj_data.jsp");
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
 		httppost.setHeader("Cookie", cookie);//不带cookie找不到值
 //		httppost.setHeader("Content-Length", "1124");

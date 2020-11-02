@@ -128,7 +128,7 @@ public class Code {
 		String  keyAndTime [] = new String [2];
 		//实例化HttpClient
 		HttpClient httpclient = HttpClients.custom().build();
-		HttpGet httpget = new HttpGet("http://**.***.***.**:8081/hnjdjw/custom/js/SetKingoEncypt.jsp");
+		HttpGet httpget = new HttpGet("http://61.163.103.43:8081/hnjdjw/custom/js/SetKingoEncypt.jsp");
 		httpget.setHeader("Cookie", cookie);
 		//构建ResponseHandler
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();

@@ -18,18 +18,18 @@ import org.apache.http.protocol.HTTP;
 public class ScoreData {
 	public void showData(String cookie) throws ClientProtocolException, IOException {
 		HttpClient hc = HttpClients.custom().build(); 
-		//µÇÂ¼½çÃæ£ºhttp://**.***.***.**:8081/hnjdjw/cas/logon.action
-		//»úµç½ÌÎñ¸öÈËÑ§ÉúĞÅÏ¢Ò³£ºhttp://**.***.***.**:8081/hnjdjw/MainFrm.html
-		//Í·²¿ĞÅÏ¢£ºhttp://**.***.***.**:8081/hnjdjw/frame14/Main_banner.jsp  µ±Ç°ÓÃ»§xxxÍ¬Ñ§/xxxÀÏÊ¦
-		//³É¼¨×ÜÀÀ£ºhttp://**.***.***.**:8081/hnjdjw/student/xscj.stuckcj_data.jsp
-		HttpPost httppost = new HttpPost("http://61.163.103.43:8081/hnjdjw/student/xscj.stuckcj_data.jsp");
+		//ç™»å½•ç•Œé¢ï¼šhttp://**.***.***.**:8081/hnjdjw/cas/logon.action
+		//æœºç”µæ•™åŠ¡ä¸ªäººå­¦ç”Ÿä¿¡æ¯é¡µï¼šhttp://**.***.***.**:8081/hnjdjw/MainFrm.html
+		//å¤´éƒ¨ä¿¡æ¯ï¼šhttp://**.***.***.**:8081/hnjdjw/frame14/Main_banner.jsp  å½“å‰ç”¨æˆ·xxxåŒå­¦/xxxè€å¸ˆ
+		//æˆç»©æ€»è§ˆï¼šhttp://**.***.***.**:8081/hnjdjw/student/xscj.stuckcj_data.jsp
+		HttpPost httppost = new HttpPost("http://**.***.***.**:8081/hnjdjw/student/xscj.stuckcj_data.jsp");
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
-		httppost.setHeader("Cookie", cookie);//²»´øcookieÕÒ²»µ½Öµ
+		httppost.setHeader("Cookie", cookie);//ä¸å¸¦cookieæ‰¾ä¸åˆ°å€¼
 //		httppost.setHeader("Content-Length", "1124");
-		//½¨Á¢NameValuePairÊı×é£¬ÓÃÓÚ´æ´¢Óû´«ËÍµÄ²ÎÊı
+		//å»ºç«‹NameValuePairæ•°ç»„ï¼Œç”¨äºå­˜å‚¨æ¬²ä¼ é€çš„å‚æ•°
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 		
-		//ÊäÈë²ÎÊı    »ñÈ¡³É¼¨µÄ²ÎÊı
+		//è¾“å…¥å‚æ•°    è·å–æˆç»©çš„å‚æ•°
 		nvps.add(new BasicNameValuePair("sjxz","sjxz1"));
 		nvps.add(new BasicNameValuePair("ysyx","yxcj"));
 		nvps.add(new BasicNameValuePair("zx","1"));
@@ -43,7 +43,7 @@ public class ScoreData {
 		httppost.setEntity(new UrlEncodedFormEntity(nvps,HTTP.UTF_8));	
 		String responseBody = "";
 		responseBody = hc.execute(httppost,responseHandler);
-		httppost.abort();//ÊÍ·ÅÁ¬½Ó
+		httppost.abort();//é‡Šæ”¾è¿æ¥
 		Message ms = new Message();
 		System.out.println(ms.showList(responseBody));
 	}

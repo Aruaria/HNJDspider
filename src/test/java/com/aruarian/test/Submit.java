@@ -20,12 +20,12 @@ import org.junit.Test;
 public class Submit {
 	
 	public static String submit(String [] codes,String cookie) throws Exception {
-        HttpPost httpPost = new HttpPost("http://61.163.103.43:8081/hnjdjw/cas/logon.action");
-        httpPost.setHeader("Cookie", cookie);//不带cookie找不到值
+        HttpPost httpPost = new HttpPost("http://**.***.***.**:8081/hnjdjw/cas/logon.action");
+        httpPost.setHeader("Cookie", cookie);//虏禄麓酶cookie脮脪虏禄碌陆脰碌
         httpPost.setHeader("X-Requested-With", "XMLHttpRequest");
         HttpClient client = HttpClients.createDefault();
         String respContent = null;
-//        表单方式
+//        卤铆碌楼路陆脢陆
         List<BasicNameValuePair> pairList = new ArrayList<BasicNameValuePair>();
         pairList.add(new BasicNameValuePair("params", codes[0]));
         pairList.add(new BasicNameValuePair("token", codes[1]));

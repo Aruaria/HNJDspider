@@ -6,45 +6,45 @@ import com.aruarian.util.*;
 
 public class MainDemo {
 	/*
-	 * 1.ÔËĞĞ³ÌĞòÇ°ÇëÏÈÔÄ¶ÁREADME.mdÎÄ¼şÈ·±£ÄÜÕıÈ·ÔËĞĞ¡£
-	 * 2.**.***.***.** ipĞŞ¸Äºó²ÅÄÜÔËĞĞ
+	 * 1.è¿è¡Œç¨‹åºå‰è¯·å…ˆé˜…è¯»README.mdæ–‡ä»¶ç¡®ä¿èƒ½æ­£ç¡®è¿è¡Œã€‚
+	 * 2.**.***.***.** ipä¿®æ”¹åæ‰èƒ½è¿è¡Œ
 	 */
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(System.in);
 		HttpClientDemo htc = new HttpClientDemo();
-		String uId="";//Ñ§ºÅ
-		String password="";//ÃÜÂë
-		//»ñÈ¡ÑéÖ¤Âë¼°cookie
+		String uId="";//å­¦å·
+		String password="";//å¯†ç 
+		//è·å–éªŒè¯ç åŠcookie
 		String code= "";
 		String cookie = "";
-			//½«ÑéÖ¤ÂëÅÀÈ¡µ½imagesÏÂ²¢É¨Ãè
+			//å°†éªŒè¯ç çˆ¬å–åˆ°imagesä¸‹å¹¶æ‰«æ
 		PictureSpider ps = new PictureSpider();
 //			String [] codeAndCookie = ps.getCodeAndCookie();
 		do {
-			cookie = ps.saveImage("http://61.163.103.43:8081/hnjdjw/cas/genValidateCode", "images/code.jpg");;
+			cookie = ps.saveImage("http://**.***.***.**:8081/hnjdjw/cas/genValidateCode", "images/code.jpg");;
 			OCR ocr = new OCR();
 			code = ocr.Ocr();
 		}while(code.length()!=4);
-//			//»ìÏıĞÅÏ¢
+//			//æ··æ·†ä¿¡æ¯
 			Code cd = new Code();
-			System.out.print("ÊäÈëÑ§ºÅ£º");
+			System.out.print("è¾“å…¥å­¦å·ï¼š");
 			uId=input.next();
-			System.out.print("ÊäÈëÃÜÂë(Ä¬ÈÏÖµÎªÑ§ºÅ)£º");
+			System.out.print("è¾“å…¥å¯†ç (é»˜è®¤å€¼ä¸ºå­¦å·)ï¼š");
 			password=input.next();
 			String codes [] = cd.getCode(code, cookie, uId, password);
-			//Ìá½»µÇÂ¼±íµ¥ĞÅÏ¢
+			//æäº¤ç™»å½•è¡¨å•ä¿¡æ¯
 			Submit sub = new Submit();
 			String message = sub.submit(codes, cookie);
 			System.out.println(message);
-			if(message.indexOf("²Ù×÷³É¹¦")==-1) {
+			if(message.indexOf("æ“ä½œæˆåŠŸ")==-1) {
 				/*
-				 * ¿ÉÄÜ³öÏÖµÄÎÊÌâ:
-				 * ·şÎñÆ÷µÄÎÊÌâ£º
-				 * 1.Á¬½Ó³¬Ê±£ºÍøÂçÎÊÌâ    ½â¾ö°ì·¨£ºÔÙ´Î³¢ÊÔÔËĞĞ³ÌĞò
-				 * 2.Á¬½ÓÊ§°Ü£º·şÎñÆ÷¹Ø±ÕÁË    ½â¾ö°ì·¨£º¹ı°ëÌìºóÔÙ´Î³¢ÊÔ¼´¿É
-				 * ³ÌĞòµÄÎÊÌâ£º
-				 * 1.ÑéÖ¤ÂëÎ´ÕıÈ·Ê¶±ğ³öÀ´¡£     ½â¾ö°ì·¨£ºÔÙ´ÎÔËĞĞ³ÌĞò¼´¿É
-				 * 3.´íÎóµÄÃÜÂë     ½â¾ö°ì·¨£ºÃÜÂë´íÎó£¬²»ÄÜ³¬¹ıÏŞ¶¨´ÎÊı£¬·ñÔò»áËøºÅ¡£
+				 * å¯èƒ½å‡ºç°çš„é—®é¢˜:
+				 * æœåŠ¡å™¨çš„é—®é¢˜ï¼š
+				 * 1.è¿æ¥è¶…æ—¶ï¼šç½‘ç»œé—®é¢˜    è§£å†³åŠæ³•ï¼šå†æ¬¡å°è¯•è¿è¡Œç¨‹åº
+				 * 2.è¿æ¥å¤±è´¥ï¼šæœåŠ¡å™¨å…³é—­äº†    è§£å†³åŠæ³•ï¼šè¿‡åŠå¤©åå†æ¬¡å°è¯•å³å¯
+				 * ç¨‹åºçš„é—®é¢˜ï¼š
+				 * 1.éªŒè¯ç æœªæ­£ç¡®è¯†åˆ«å‡ºæ¥ã€‚     è§£å†³åŠæ³•ï¼šå†æ¬¡è¿è¡Œç¨‹åºå³å¯
+				 * 3.é”™è¯¯çš„å¯†ç      è§£å†³åŠæ³•ï¼šå¯†ç é”™è¯¯ï¼Œä¸èƒ½è¶…è¿‡é™å®šæ¬¡æ•°ï¼Œå¦åˆ™ä¼šé”å·ã€‚
 				 */
 				System.exit(0);
 			}
